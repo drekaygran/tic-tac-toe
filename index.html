@@ -12,6 +12,37 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
+<!-- message changes depending on user activity -->
+      <h4 id="message">Welcome!  Sign in to play a game of tic tac toe.</h4>
+<!-- sign up and sign in disappear once user is signed in -->
+      <div id="sign-up-bar">
+      <form id="sign-up">
+        <h3>Sign Up</h3>
+        <input type="text" placeholder="Email" name="credentials[email]">
+        <input type="password" placeholder="Password" name="credentials[password]">
+        <input type="password" placeholder="Password Confirmtation" name="credentials[password_confirmation]">
+        <button>Submit</button>
+      </form>
+      <form id="sign-in">
+        <h3>Sign In</h3>
+        <input type="text" placeholder="Email" name="credentials[email]">
+        <input type="password" placeholder="Password" name="credentials[password]">
+        <button>Submit</button>
+      </form>
+    </div>
+<!-- change pw and sign out appear when user is signed in -->
+    <div id="sign-out-bar">
+     <form id="change-password">
+       <h3>Change Password</h3>
+       <input type="password" placeholder="Current Password" name="passwords[old]">
+       <input type="password" placeholder="New Password" name="passwords[new]">
+       <button>Submit</button>
+     </form>
+     <form id="sign-out">
+       <h3>Sign Out</h3>
+       <button>Sign Out</button>
+     </form>
+   </div>
     </body>
 </html>
