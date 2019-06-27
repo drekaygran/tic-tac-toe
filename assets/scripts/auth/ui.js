@@ -33,7 +33,6 @@ const signInSuccess = data => {
   successMessage(`You are signed in!  Let's play some tic tac toe.`)
   // hideSignUpBar()
   store.user = data.user
-  console.log(data.user)
 }
 
 const signInFail = data => {
@@ -42,7 +41,6 @@ const signInFail = data => {
 
 const changePasswordSuccess = data => {
   successMessage('Your password has been changed.')
-  console.log('changePasswordSuccess ran')
   // hideSignUpBar()
 }
 

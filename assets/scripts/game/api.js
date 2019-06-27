@@ -28,12 +28,23 @@ const newGame = data => {
   })
 }
 
-const updateBoard = data => {
+const spaceSelection = () => {
   return $.ajax({
-
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: {
+      'game': {
+        'cell': {
+          'index': $('div').data('cell-index'),
+          'value': store.currentPlayer
+        },
+        'over': false
+      }
+    }
   })
 }
 
 module.exports = {
-  newGame
+  newGame,
+  spaceSelection
 }
