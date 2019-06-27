@@ -2,22 +2,38 @@
 
 // const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
-// const ui = require('./ui')
+const ui = require('./ui')
 
-// const cells = ['', '', '', '', '', 'work', '', '', '']
-// figure out how to assign each cell to html
+// figure out how to assign each cell to html, may not need this.
 // const createBoard = () => {
-//   document.getElementById('game-board').innerHTML = cells
-//   for (let i=0)
+//   const emptyCells = ['works', 'works', 'works', 'works', 'works', 'works', 'works', 'works', 'works']
+//   for (let i = 0; i < emptyCells.length; i++) {
+//     const cell = document.getElementById(i)
+//     $(cell).text(emptyCells[i])
+//   }
 // }
+let cells = ['', '', '', '', '', '', '', '', '']
 
 const onNewGame = event => {
-  // createBoard()
-  api.newGame()
-    .then(console.log)
-    .catch(console.log)
+  event.preventDefault()
+  cells = ['', '', '', '', '', '', '', '', '']
+  $('.col-4').text('')
+  api.newGame(event)
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFail)
+}
+
+const onSpaceSelection = event => {
+  const spaceId = '#' + event.target.id
+  if (cells[event.target.id]) {
+    return ui.invalidSpace()
+  } else {
+    $(spaceId).text('X')
+    cells[event.target.id] = 'X'
+  }
 }
 
 module.exports = {
-  onNewGame
+  onNewGame,
+  onSpaceSelection
 }

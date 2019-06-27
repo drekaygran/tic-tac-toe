@@ -1,6 +1,7 @@
 'use strict'
 
 const config = require('../config')
+const store = require('../store')
 
 // newGame creates an object like the following
 // {
@@ -20,7 +21,16 @@ const newGame = data => {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
-    game: {}
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: ''
+  })
+}
+
+const updateBoard = data => {
+  return $.ajax({
+
   })
 }
 
