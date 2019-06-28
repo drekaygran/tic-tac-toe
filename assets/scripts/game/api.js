@@ -32,11 +32,14 @@ const spaceSelection = () => {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data: {
       'game': {
         'cell': {
-          'index': $('div').data('cell-index'),
-          'value': store.currentPlayer
+          'index': store.update.id,
+          'value': store.update.currentPlayer
         },
         'over': false
       }

@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const gameEvents = require('./../game/events')
 
 const successMessage = message => {
   $('#message').text(message)
@@ -33,6 +34,8 @@ const signInSuccess = data => {
   successMessage(`You are signed in!  Let's play some tic tac toe.`)
   // hideSignUpBar()
   store.user = data.user
+  gameEvents.onNewGame()
+  console.log(store.user)
 }
 
 const signInFail = data => {

@@ -7,8 +7,6 @@ const store = require('../store')
 const newGameSuccess = data => {
   $('#game-message').text('Ready to play.')
   store.game = data.game
-  console.log(store.game)
-  console.log(store.game.cells)
 }
 
 const newGameFail = () => {
@@ -24,11 +22,15 @@ const signInToPlay = () => {
 }
 
 const spaceSelectionSuccess = data => {
-  store.game = data
+  // store.game = data
 }
 
-const gameOver = data => {
-  $('#game-message').text('Game Over.')
+const playerXWins = () => {
+  $('#game-message').text('Game Over, X wins!')
+}
+
+const playerOWins = () => {
+  $('#game-message').text('Game Over, O wins!')
 }
 
 module.exports = {
@@ -37,5 +39,6 @@ module.exports = {
   invalidSpace,
   spaceSelectionSuccess,
   signInToPlay,
-  gameOver
+  playerXWins,
+  playerOWins
 }

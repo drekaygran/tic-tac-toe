@@ -3,7 +3,6 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const gameEvents = ('./../game/events')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -16,16 +15,15 @@ const onSignUp = event => {
 const onSignIn = event => {
   event.preventDefault()
   const formData = getFormFields(event.target)
+  $('section').show()
   api.signIn(formData)
     .then(ui.signInSuccess)
-    .then(gameEvents.onNewGame)
     .catch(ui.signInFail)
 }
 
 const onChangePassword = event => {
   event.preventDefault()
   const formData = getFormFields(event.target)
-  console.log('onChangePassword ran')
   api.changePassword(formData)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFail)
@@ -33,6 +31,7 @@ const onChangePassword = event => {
 
 const onSignOut = event => {
   event.preventDefault()
+  $('section').hide()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFail)
