@@ -41,7 +41,7 @@ const spaceSelection = () => {
           'index': store.update.id,
           'value': store.update.currentPlayer
         },
-        'over': false
+        'over': store.update.over
       }
     }
   })

@@ -3,13 +3,17 @@
 // const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('./../store')
+const store = require('../store')
 
 let cells = ['', '', '', '', '', '', '', '', '']
+let currentPlayerIsX
 
-const onNewGame = () => {
+const onNewGame = data => {
   cells = ['', '', '', '', '', '', '', '', '']
+  store.update = {}
+  store.update.over = 'false'
   $('.col-4').text('')
+  currentPlayerIsX = true
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)
@@ -17,7 +21,6 @@ const onNewGame = () => {
 
 // if the game is over, don't insert a character
 //
-let currentPlayerIsX = true
 
 // how to determine if the game is over, incomplete array
 const winningArrays = gameArray => {
@@ -32,9 +35,14 @@ const winningArrays = gameArray => {
 // this still isn't working...
 const isGameOver = gameArray => {
   const sets = winningArrays(gameArray)
+  let tie
   let gameOver = false
   if (sets.some(arr => arr.every(val => val && val === arr[0]))) {
     gameOver = true
+  } else if (gameArray.every(item => item !== '')) {
+    gameOver = true
+    tie = 'tie'
+    return tie
   }
   return gameOver
 }
@@ -54,29 +62,34 @@ const onSpaceSelection = event => {
     if (!currentPlayerIsX) {
       $(event.target).text('O')
       cells[event.target.id] = 'O'
+      ui.xTurnMessage()
       // ui.spaceSelectionSuccess(event.target)
       // if a move is made, switch current player to opposite
       currentPlayerIsX = !currentPlayerIsX
     } else {
       $(event.target).text('X')
       cells[event.target.id] = 'X'
+      ui.oTurnMessage()
       // ui.spaceSelectionSuccess(event.target)
       currentPlayerIsX = !currentPlayerIsX
     }
   }
+  store.update = event.target
+  store.update.currentPlayer = $(event.target).text()
+  api.spaceSelection(event)
+    .then(console.log)
+    .catch(console.log)
   // after turn, check to see if game is over
   gameOver = isGameOver(cells)
   if (gameOver) {
-    if (!currentPlayerIsX) {
+    store.update.over = 'true'
+    if (gameOver === 'tie') {
+      ui.tieGame()
+    } else if (!currentPlayerIsX) {
       ui.playerXWins()
     } else if (currentPlayerIsX) {
       ui.playerOWins()
     }
-    store.update = event.target
-    store.update.currentPlayer = $(event.target).text()
-    api.spaceSelection(event)
-      .then(console.log)
-      .catch(console.log)
   // console.log(store.update.currentPlayer)
   // console.log('gameOver', isGameOver())
   }

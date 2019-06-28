@@ -35,7 +35,7 @@ const signInSuccess = data => {
   // hideSignUpBar()
   store.user = data.user
   gameEvents.onNewGame()
-  console.log(store.user)
+  $('#get-games').show()
 }
 
 const signInFail = data => {
@@ -53,6 +53,7 @@ const changePasswordFail = data => {
 
 const signOutSuccess = data => {
   successMessage('Cheers, you have signed out.')
+  store.user = null
 }
 
 const signOutFail = data => {

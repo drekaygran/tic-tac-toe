@@ -33,6 +33,18 @@ const playerOWins = () => {
   $('#game-message').text('Game Over, O wins!')
 }
 
+const tieGame = () => {
+  $('#game-message').text('Game Over, you tied. Lame.')
+}
+
+const xTurnMessage = () => {
+  $('#game-message').text(`X's move`)
+}
+
+const oTurnMessage = () => {
+  $('#game-message').text(`O's move`)
+}
+
 module.exports = {
   newGameSuccess,
   newGameFail,
@@ -40,5 +52,8 @@ module.exports = {
   spaceSelectionSuccess,
   signInToPlay,
   playerXWins,
-  playerOWins
+  playerOWins,
+  tieGame,
+  xTurnMessage,
+  oTurnMessage
 }
