@@ -22,26 +22,26 @@
         <input type="text" placeholder="Email" name="credentials[email]">
         <input type="password" placeholder="Password" name="credentials[password]">
         <input type="password" placeholder="Password Confirmtation" name="credentials[password_confirmation]">
-        <button>Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <form id="sign-in">
         <h5>Sign In</h5>
         <input type="text" placeholder="Email" name="credentials[email]">
         <input type="password" placeholder="Password" name="credentials[password]">
-        <button>Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-<!-- change pw and sign out appear when user is signed in -->
+<!-- change pw and sign out appear when user is signed in, no they don't. -->
     <div id="sign-out-bar">
      <form id="change-password">
        <h5>Change Password</h5>
        <input type="password" placeholder="Current Password" name="passwords[old]">
        <input type="password" placeholder="New Password" name="passwords[new]">
-       <button>Submit</button>
+       <button type="submit" class="btn btn-primary">Submit</button>
      </form>
      <form id="sign-out">
        <h5>Sign Out</h5>
-       <button>Sign Out</button>
+       <button type="button" class="btn btn-primary">Sign Out</button>
      </form>
    </div>
        <!-- game board begins -->
@@ -64,8 +64,27 @@
           <div class="col-4" data-cell-index="8" id=8></div>
         </div>
        </div>
-       <button id="new-game">New Game</button>
-       <button id="get-games">Get Game Stats</button>
+       <button type="button" class="btn btn-primary" id="new-game">New Game</button>
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
+       <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="get-games-results">
+        <p id="get-games-message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
      </section>
     </body>
 </html>
