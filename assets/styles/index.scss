@@ -1,1 +1,31 @@
 @import '~bootstrap/scss/bootstrap';
+
+.bottom {
+  border-top: 3px solid #000;
+}
+
+.col-middle {
+  border-right: 3px solid #000;
+  border-left: 3px solid #000;
+}
+
+.game-board {
+  background-color: #bee;
+  height: 50vh;
+  width: 50vh;
+}
+
+.col-4 {
+  font-size: 5em;
+  line-height: 100%;
+  text-align: center;
+  width: 33.33333%;
+}
+
+.row {
+  height: 33.33333%;
+}
+
+.top {
+  border-bottom: 3px solid #000;
+}
