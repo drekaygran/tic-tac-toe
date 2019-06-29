@@ -5,7 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-store.cells = ['', '', '', '', '', '', '', '', '']
+// store.cells = ['', '', '', '', '', '', '', '', '']
 let currentPlayerIsX
 
 const onNewGame = data => {
@@ -51,9 +51,9 @@ const onSpaceSelection = event => {
   if (!store.user) {
     return ui.signInToPlay()
   } else if (gameOver) {
-  } else if (store.cells[event.target.id] || gameOver) {
+    return ui.clickNewGame()
+  } else if (store.cells[event.target.id]) {
   // if the space is invalid, don't insert a character
-    console.log(event.target.id)
     return ui.invalidSpace()
   } else {
     // otherwise, allow current player to choose a space
@@ -73,12 +73,13 @@ const onSpaceSelection = event => {
       // ui.spaceSelectionSuccess(event.target)
       currentPlayerIsX = !currentPlayerIsX
     }
-    console.log(store.cells)
+    // console.log(store.cells[store.update.id])
   }
   // after turn, check to see if game is over
   gameOver = isGameOver(store.cells)
   if (gameOver) {
     store.update.over = true
+    // console.log(store.update.over)
     if (gameOver === 'tie') {
       ui.tieGame()
     } else if (!currentPlayerIsX) {
@@ -86,12 +87,12 @@ const onSpaceSelection = event => {
     } else if (currentPlayerIsX) {
       ui.playerOWins()
     }
-    api.spaceSelection(event)
-      .then(console.log)
-      .catch(console.log)
   // console.log(store.update.currentPlayer)
   // console.log('gameOver', isGameOver())
   }
+  api.spaceSelection()
+    .then()
+    .catch()
 }
 
 module.exports = {

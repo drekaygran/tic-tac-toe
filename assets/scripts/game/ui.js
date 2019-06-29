@@ -45,6 +45,10 @@ const oTurnMessage = () => {
   $('#game-message').text(`O's move`)
 }
 
+const clickNewGame = () => {
+  $('#game-message').text('Click "New Game" to play again.')
+}
+
 module.exports = {
   newGameSuccess,
   newGameFail,
@@ -55,5 +59,6 @@ module.exports = {
   playerOWins,
   tieGame,
   xTurnMessage,
-  oTurnMessage
+  oTurnMessage,
+  clickNewGame
 }

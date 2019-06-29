@@ -6,7 +6,7 @@ const ui = require('./ui')
 const onGetGames = () => {
   api.getGames()
     .then(ui.getGamesResults)
-    .catch(console.log)
+    .catch(ui.getResultsFail)
 }
 
 module.exports = {

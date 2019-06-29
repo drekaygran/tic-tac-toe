@@ -41,6 +41,7 @@ const signInSuccess = data => {
   store.user = data.user
   gameEvents.onNewGame()
   $('#get-games').show()
+  $('section').show()
 }
 
 const signInFail = data => {

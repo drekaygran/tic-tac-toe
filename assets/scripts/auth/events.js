@@ -15,7 +15,6 @@ const onSignUp = event => {
 const onSignIn = event => {
   event.preventDefault()
   const formData = getFormFields(event.target)
-  $('section').show()
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFail)
