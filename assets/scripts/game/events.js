@@ -5,13 +5,13 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-let cells = ['', '', '', '', '', '', '', '', '']
+store.cells = ['', '', '', '', '', '', '', '', '']
 let currentPlayerIsX
 
 const onNewGame = data => {
-  cells = ['', '', '', '', '', '', '', '', '']
+  store.cells = ['', '', '', '', '', '', '', '', '']
   store.update = {}
-  store.update.over = 'false'
+  store.update.over = false
   $('.col-4').text('')
   currentPlayerIsX = true
   api.newGame()
@@ -19,10 +19,7 @@ const onNewGame = data => {
     .catch(ui.newGameFail)
 }
 
-// if the game is over, don't insert a character
-//
-
-// how to determine if the game is over, incomplete array
+// how to determine if the game is over
 const winningArrays = gameArray => {
   const a = [gameArray[0], gameArray[3], gameArray[6]]
   const b = [gameArray[1], gameArray[4], gameArray[7]]
@@ -32,7 +29,6 @@ const winningArrays = gameArray => {
   return [gameArray.slice(0, 3), gameArray.slice(3, 6), gameArray.slice(6, 9), a, b, c, d, e]
 }
 
-// this still isn't working...
 const isGameOver = gameArray => {
   const sets = winningArrays(gameArray)
   let tie
@@ -47,13 +43,15 @@ const isGameOver = gameArray => {
   return gameOver
 }
 
+// if the game is over, don't insert a character
 const onSpaceSelection = event => {
-  let gameOver = isGameOver(cells)
+  let gameOver = isGameOver(store.cells)
+  store.update.id = event.target.id
   // console.log(store.user)
   if (!store.user) {
     return ui.signInToPlay()
   } else if (gameOver) {
-  } else if (cells[event.target.id]) {
+  } else if (store.cells[event.target.id] || gameOver) {
   // if the space is invalid, don't insert a character
     console.log(event.target.id)
     return ui.invalidSpace()
@@ -61,28 +59,26 @@ const onSpaceSelection = event => {
     // otherwise, allow current player to choose a space
     if (!currentPlayerIsX) {
       $(event.target).text('O')
-      cells[event.target.id] = 'O'
+      store.cells[event.target.id] = 'O'
       ui.xTurnMessage()
       // ui.spaceSelectionSuccess(event.target)
       // if a move is made, switch current player to opposite
+      store.update.currentPlayer = $(event.target).text()
       currentPlayerIsX = !currentPlayerIsX
     } else {
       $(event.target).text('X')
-      cells[event.target.id] = 'X'
+      store.cells[event.target.id] = 'X'
       ui.oTurnMessage()
+      store.update.currentPlayer = $(event.target).text()
       // ui.spaceSelectionSuccess(event.target)
       currentPlayerIsX = !currentPlayerIsX
     }
+    console.log(store.cells)
   }
-  store.update = event.target
-  store.update.currentPlayer = $(event.target).text()
-  api.spaceSelection(event)
-    .then(console.log)
-    .catch(console.log)
   // after turn, check to see if game is over
-  gameOver = isGameOver(cells)
+  gameOver = isGameOver(store.cells)
   if (gameOver) {
-    store.update.over = 'true'
+    store.update.over = true
     if (gameOver === 'tie') {
       ui.tieGame()
     } else if (!currentPlayerIsX) {
@@ -90,12 +86,20 @@ const onSpaceSelection = event => {
     } else if (currentPlayerIsX) {
       ui.playerOWins()
     }
+    api.spaceSelection(event)
+      .then(console.log)
+      .catch(console.log)
   // console.log(store.update.currentPlayer)
   // console.log('gameOver', isGameOver())
   }
 }
 
+const onBoardClick = () => {
+  // invalid if gameover
+}
+
 module.exports = {
   onNewGame,
-  onSpaceSelection
+  onSpaceSelection,
+  onBoardClick
 }
