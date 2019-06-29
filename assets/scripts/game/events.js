@@ -19,10 +19,7 @@ const onNewGame = data => {
     .catch(ui.newGameFail)
 }
 
-// if the game is over, don't insert a character
-//
-
-// how to determine if the game is over, incomplete array
+// how to determine if the game is over
 const winningArrays = gameArray => {
   const a = [gameArray[0], gameArray[3], gameArray[6]]
   const b = [gameArray[1], gameArray[4], gameArray[7]]
@@ -32,7 +29,6 @@ const winningArrays = gameArray => {
   return [gameArray.slice(0, 3), gameArray.slice(3, 6), gameArray.slice(6, 9), a, b, c, d, e]
 }
 
-// this still isn't working...
 const isGameOver = gameArray => {
   const sets = winningArrays(gameArray)
   let tie
@@ -47,6 +43,7 @@ const isGameOver = gameArray => {
   return gameOver
 }
 
+// if the game is over, don't insert a character
 const onSpaceSelection = event => {
   let gameOver = isGameOver(store.cells)
   store.update.id = event.target.id
@@ -54,7 +51,7 @@ const onSpaceSelection = event => {
   if (!store.user) {
     return ui.signInToPlay()
   } else if (gameOver) {
-  } else if (store.cells[event.target.id]) {
+  } else if (store.cells[event.target.id] || gameOver) {
   // if the space is invalid, don't insert a character
     console.log(event.target.id)
     return ui.invalidSpace()
@@ -97,7 +94,12 @@ const onSpaceSelection = event => {
   }
 }
 
+const onBoardClick = () => {
+  // invalid if gameover
+}
+
 module.exports = {
   onNewGame,
-  onSpaceSelection
+  onSpaceSelection,
+  onBoardClick
 }

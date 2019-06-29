@@ -17,10 +17,15 @@ const failMessage = message => {
   $('form').trigger('reset')
 }
 
-// const hideSignUpBar = () => {
-//   $('#sign-up-bar').hide()
-//   $('#sign-out-bar').show()
-// }
+const hideSignUpBar = () => {
+  $('#sign-up-bar').hide()
+  $('#sign-out-bar').show()
+}
+
+const showSignUpBar = () => {
+  $('#sign-out-bar').hide()
+  $('#sign-up-bar').show()
+}
 
 const signUpSuccess = data => {
   successMessage('Thanks for signing up!')
@@ -32,7 +37,7 @@ const signUpFail = data => {
 
 const signInSuccess = data => {
   successMessage(`You are signed in!  Let's play some tic tac toe.`)
-  // hideSignUpBar()
+  hideSignUpBar()
   store.user = data.user
   gameEvents.onNewGame()
   $('#get-games').show()
@@ -54,6 +59,7 @@ const changePasswordFail = data => {
 const signOutSuccess = data => {
   successMessage('Cheers, you have signed out.')
   store.user = null
+  showSignUpBar()
 }
 
 const signOutFail = data => {

@@ -10,7 +10,7 @@ const statsEvents = require('./stats/events')
 // require('./example')
 
 $(() => {
-  // $('#sign-out-bar').hide()
+  $('#sign-out-bar').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
@@ -20,4 +20,5 @@ $(() => {
   $('#get-games').hide()
   $('section').hide()
   $('#get-games').on('click', statsEvents.onGetGames)
+  $('.game-board-container').on('click', gameEvents.onBoardClick)
 })
