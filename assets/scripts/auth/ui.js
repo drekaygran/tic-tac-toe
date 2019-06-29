@@ -28,7 +28,7 @@ const showSignUpBar = () => {
 }
 
 const signUpSuccess = data => {
-  successMessage('Thanks for signing up!')
+  successMessage('Thanks for signing up! Now, sign in to play.')
 }
 
 const signUpFail = data => {

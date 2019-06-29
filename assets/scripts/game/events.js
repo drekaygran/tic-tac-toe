@@ -94,12 +94,7 @@ const onSpaceSelection = event => {
   }
 }
 
-const onBoardClick = () => {
-  // invalid if gameover
-}
-
 module.exports = {
   onNewGame,
-  onSpaceSelection,
-  onBoardClick
+  onSpaceSelection
 }

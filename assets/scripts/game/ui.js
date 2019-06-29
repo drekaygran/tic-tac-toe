@@ -26,15 +26,15 @@ const spaceSelectionSuccess = data => {
 }
 
 const playerXWins = () => {
-  $('#game-message').text('Game Over, X wins!')
+  $('#game-message').text('Game Over, X wins! Click "New Game" to play again.')
 }
 
 const playerOWins = () => {
-  $('#game-message').text('Game Over, O wins!')
+  $('#game-message').text('Game Over, O wins! Click "New Game" to play again.')
 }
 
 const tieGame = () => {
-  $('#game-message').text('Game Over, you tied. Lame.')
+  $('#game-message').text('Game Over, you tied. Lame. Click "New Game" to play again.')
 }
 
 const xTurnMessage = () => {

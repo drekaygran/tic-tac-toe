@@ -20,5 +20,4 @@ $(() => {
   $('#get-games').hide()
   $('section').hide()
   $('#get-games').on('click', statsEvents.onGetGames)
-  $('.game-board-container').on('click', gameEvents.onBoardClick)
 })
