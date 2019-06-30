@@ -11,61 +11,63 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
+    <body class="container">
       <h1>Tic Tac Toe</h1>
 <!-- message changes depending on user activity -->
       <h4 id="message">Welcome!  Sign in to play a game of tic tac toe.</h4>
 <!-- sign up and sign in disappear once user is signed in -->
-      <div id="sign-up-bar">
-      <form id="sign-up">
+      <div class="row" id="sign-up-bar">
+      <form class="col-md-6 mb-5" id="sign-up">
         <h5>Sign Up</h5>
-        <input type="text" placeholder="Email" name="credentials[email]">
-        <input type="password" placeholder="Password" name="credentials[password]">
-        <input type="password" placeholder="Password Confirmtation" name="credentials[password_confirmation]">
+        <input class="form-control mb-1" type="text" placeholder="Email" name="credentials[email]">
+        <input class="form-control mb-1" type="password" placeholder="Password" name="credentials[password]">
+        <input class="form-control mb-1" type="password" placeholder="Password Confirmtation" name="credentials[password_confirmation]">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <form id="sign-in">
+      <form class="col-md-6 mb-5" id="sign-in">
         <h5>Sign In</h5>
-        <input type="text" placeholder="Email" name="credentials[email]">
-        <input type="password" placeholder="Password" name="credentials[password]">
+        <input class="form-control mb-1" type="text" placeholder="Email" name="credentials[email]">
+        <input class="form-control mb-1" type="password" placeholder="Password" name="credentials[password]">
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
 <!-- change pw and sign out appear when user is signed in, no they don't. -->
-    <div id="sign-out-bar">
-     <form id="change-password">
+    <div class="row" id="sign-out-bar">
+     <form class="col-md-6 mb-5" id="change-password">
        <h5>Change Password</h5>
-       <input type="password" placeholder="Current Password" name="passwords[old]">
-       <input type="password" placeholder="New Password" name="passwords[new]">
+       <input class="form-control mb-1" type="password" placeholder="Current Password" name="passwords[old]">
+       <input class="form-control mb-1" type="password" placeholder="New Password" name="passwords[new]">
        <button type="submit" class="btn btn-primary">Submit</button>
      </form>
-     <form id="sign-out">
+     <form class="col-md-6 mb-5" id="sign-out">
        <h5>Sign Out</h5>
        <button type="button" class="btn btn-primary">Sign Out</button>
      </form>
    </div>
        <!-- game board begins -->
        <section>
-       <h3 id="game-message"></h3>
-       <div class="game-board container">
-        <div class="row top">
+       <h3 class="row justify-content-center game-info" id="game-message"></h3>
+       <div class="col-12 col-md-8 col-lg-6 game-board container">
+        <div class="row board-rows top">
           <div class="col-4" data-cell-index="0" id=0></div>
           <div class="col-4 col-middle" data-cell-index="1" id=1></div>
           <div class="col-4" data-cell-index="2" id=2></div>
         </div>
-        <div class="row middle">
+        <div class="row board-rows middle">
           <div class="col-4" data-cell-index="3" id=3></div>
           <div class="col-4 col-middle" data-cell-index="4" id=4></div>
           <div class="col-4" data-cell-index="5" id=5></div>
         </div>
-        <div class="row bottom">
+        <div class="row board-rows bottom">
           <div class="col-4" data-cell-index="6" id=6></div>
           <div class="col-4 col-middle" data-cell-index="7" id=7></div>
           <div class="col-4" data-cell-index="8" id=8></div>
         </div>
        </div>
-       <button type="button" class="btn btn-primary" id="new-game">New Game</button>
-       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
+       <div class="justify-content-center row">
+       <button type="button" class="game-info btn btn-primary" id="new-game">New Game</button>
+       <button type="button" class="game-info btn btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
+     </div>
        <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

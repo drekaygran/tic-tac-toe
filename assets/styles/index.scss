@@ -1,18 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 
+$black: #000;
+$lightblue: #bee;
+
 .bottom {
-  border-top: 3px solid #000;
-}
-
-.col-middle {
-  border-right: 3px solid #000;
-  border-left: 3px solid #000;
-}
-
-.game-board {
-  background-color: #bee;
-  height: 50vh;
-  width: 50vh;
+  border-top: 3px solid $black;
 }
 
 .col-4 {
@@ -22,10 +14,30 @@
   width: 33.33333%;
 }
 
+.col-middle {
+  border-left: 3px solid $black;
+  border-right: 3px solid $black;
+}
+
+.game-board {
+  background-color: $lightblue;
+  border-radius: 10px;
+  height: 60vh;
+}
+
+.game-info {
+  margin: 3px;
+  text-align: center;
+}
+
 .row {
-  height: 33.33333%;
+  height: 33.333333%;
 }
 
 .top {
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid $black;
+}
+
+body {
+  margin-bottom: 5vh;
 }
