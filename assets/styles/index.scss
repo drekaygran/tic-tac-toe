@@ -29,6 +29,7 @@ $lightblue: #bee;
 .embed-responsive {
   align-items: center;
   display: flex;
+  margin: 1em;
 }
 
 .game-board {
@@ -36,8 +37,7 @@ $lightblue: #bee;
   background-color: $lightblue;
   border-radius: 10px;
   margin: 0;
-  max-height: 80vh;
-  max-width: 80vh;
+  max-height: 90vh;
 }
 
 .top {
