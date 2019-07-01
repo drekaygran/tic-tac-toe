@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+// const confetti = require('../style/confetti')
 
 // come back and fix later
 
@@ -27,10 +28,12 @@ const spaceSelectionSuccess = data => {
 
 const playerXWins = () => {
   $('#game-message').text('Game Over, X wins! Click "New Game" to play again.')
+  $('.wrapper').addClass('confetti-wrap')
 }
 
 const playerOWins = () => {
   $('#game-message').text('Game Over, O wins! Click "New Game" to play again.')
+  $('.wrapper').addClass('confetti-wrap')
 }
 
 const tieGame = () => {

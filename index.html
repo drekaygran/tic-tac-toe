@@ -12,6 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container">
+      <div class="wrapper">
       <h1>Tic Tac Toe</h1>
 <!-- message changes depending on user activity -->
       <h4 id="message">Welcome!  Sign in to play a game of tic tac toe.</h4>
@@ -43,50 +44,55 @@
        <h5>Sign Out</h5>
        <button type="button" class="btn btn-primary">Sign Out</button>
      </form>
-   </div>
-       <!-- game board begins -->
-       <section>
-       <h3 class="row justify-content-center game-info" id="game-message"></h3>
-       <div class="col-12 col-md-8 col-lg-6 game-board container">
-        <div class="row board-rows top">
-          <div class="col-4" data-cell-index="0" id=0></div>
-          <div class="col-4 col-middle" data-cell-index="1" id=1></div>
-          <div class="col-4" data-cell-index="2" id=2></div>
-        </div>
-        <div class="row board-rows middle">
-          <div class="col-4" data-cell-index="3" id=3></div>
-          <div class="col-4 col-middle" data-cell-index="4" id=4></div>
-          <div class="col-4" data-cell-index="5" id=5></div>
-        </div>
-        <div class="row board-rows bottom">
-          <div class="col-4" data-cell-index="6" id=6></div>
-          <div class="col-4 col-middle" data-cell-index="7" id=7></div>
-          <div class="col-4" data-cell-index="8" id=8></div>
-        </div>
-       </div>
-       <div class="justify-content-center row">
-       <button type="button" class="game-info btn btn-primary" id="new-game">New Game</button>
-       <button type="button" class="game-info btn btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
-     </div>
-       <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Game Statistics</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="get-games-results">
-        <p id="get-games-message"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>
-     </section>
+       <!-- game board begins -->
+    <section>
+       <h3 class="game-info" id="game-message"></h3>
+       <div class="row">
+         <div class="embed-responsive embed-responsive-1by1">
+           <div class="game-board container embed-responsive-item">
+            <div class="row board-rows top">
+              <div class="col-4" data-cell-index="0" id=0></div>
+              <div class="col-4 col-middle" data-cell-index="1" id=1></div>
+              <div class="col-4" data-cell-index="2" id=2></div>
+            </div>
+            <div class="row board-rows middle">
+              <div class="col-4" data-cell-index="3" id=3></div>
+              <div class="col-4 col-middle" data-cell-index="4" id=4></div>
+              <div class="col-4" data-cell-index="5" id=5></div>
+            </div>
+            <div class="row board-rows bottom">
+              <div class="col-4" data-cell-index="6" id=6></div>
+              <div class="col-4 col-middle" data-cell-index="7" id=7></div>
+              <div class="col-4" data-cell-index="8" id=8></div>
+            </div>
+          </div>
+         </div>
+         <div class="justify-content-center">
+            <button type="button" class="game-info btn btn-primary" id="new-game">New Game</button>
+            <button type="button" class="game-info btn btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
+         </div>
+       </div>
+       <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Game Statistics</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="get-games-results">
+                <p id="get-games-message"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+     </div>
     </body>
 </html>

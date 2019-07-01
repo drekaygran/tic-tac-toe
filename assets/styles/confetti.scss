@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.confetti-wrap {
+  min-height: 100vh;
+  position: relative;
+}
+
+[class|="confetti"] {
+  position: absolute;
+}
+
+.blue {
+  color: #5FC9F5;
+  font-family: sans-serif;
+}
+
+.red {
+  color: #E94A3F;
+  font-family: sans-serif;
+}
+
+.yellow {
+  color: #FAA040;
+  font-family: sans-serif;
+}

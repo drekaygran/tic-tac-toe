@@ -1,17 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'confetti';
 
 $black: #000;
 $lightblue: #bee;
+
+.board-rows {
+  height: calc(100%/3);
+}
 
 .bottom {
   border-top: 3px solid $black;
 }
 
 .col-4 {
-  font-size: 5em;
+  align-items: center;
+  display: flex;
+  font-size: 10vmin;
+  justify-content: center;
   line-height: 100%;
   text-align: center;
-  width: 33.33333%;
 }
 
 .col-middle {
@@ -19,25 +26,42 @@ $lightblue: #bee;
   border-right: 3px solid $black;
 }
 
+.embed-responsive {
+  align-items: center;
+  display: flex;
+}
+
 .game-board {
+  // align-items: center;
   background-color: $lightblue;
   border-radius: 10px;
-  height: 60vh;
-}
-
-.game-info {
-  margin: 3px;
-  text-align: center;
-}
-
-.row {
-  height: 33.333333%;
+  margin: 0;
+  max-height: 80vh;
+  max-width: 80vh;
 }
 
 .top {
   border-bottom: 3px solid $black;
 }
 
+// .wrapper {
+//   align-items: center;
+//   justify-content: center;
+// }
+
 body {
+  // display: flex;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   margin-bottom: 5vh;
+  min-height: 100vh;
+}
+
+h1,
+h4,
+h5,
+.game-info {
+  margin: 1rem;
+  text-align: center;
 }
