@@ -23,27 +23,14 @@
         <input class="form-control mb-1" type="text" placeholder="Email" name="credentials[email]">
         <input class="form-control mb-1" type="password" placeholder="Password" name="credentials[password]">
         <input class="form-control mb-1" type="password" placeholder="Password Confirmtation" name="credentials[password_confirmation]">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
       </form>
       <form class="col-md-6 mb-5" id="sign-in">
         <h5>Sign In</h5>
         <input class="form-control mb-1" type="text" placeholder="Email" name="credentials[email]">
         <input class="form-control mb-1" type="password" placeholder="Password" name="credentials[password]">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn btn-block btn-primary">Submit</button>
       </form>
-    </div>
-<!-- change pw and sign out appear when user is signed in, no they don't. -->
-    <div class="row" id="sign-out-bar">
-     <form class="col-md-6 mb-5" id="change-password">
-       <h5>Change Password</h5>
-       <input class="form-control mb-1" type="password" placeholder="Current Password" name="passwords[old]">
-       <input class="form-control mb-1" type="password" placeholder="New Password" name="passwords[new]">
-       <button type="submit" class="btn btn-primary">Submit</button>
-     </form>
-     <form class="col-md-6 mb-5" id="sign-out">
-       <h5>Sign Out</h5>
-       <button type="button" class="btn btn-primary">Sign Out</button>
-     </form>
     </div>
        <!-- game board begins -->
     <section>
@@ -69,8 +56,8 @@
           </div>
          </div>
          <div class="make-block">
-            <button type="button" class="game-info btn btn-primary" id="new-game">New Game</button>
-            <button type="button" class="game-info btn btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
+            <button type="button" class="game-info btn btn-inline-block btn-primary" id="new-game">New Game</button>
+            <button type="button" class="game-info btn btn-inline-block btn-primary" data-toggle="modal" data-target="#exampleModal"id="get-games">Get Game Stats</button>
          </div>
        </div>
        <!-- Modal -->
@@ -93,6 +80,19 @@
           </div>
         </div>
        </section>
+       <!-- change pw and sign out appear when user is signed in, no they don't. -->
+       <div class="row" id="sign-out-bar">
+         <form class="col-md-6 mb-5" id="change-password">
+           <h5>Change Password</h5>
+           <input class="form-control mb-1" type="password" placeholder="Current Password" name="passwords[old]">
+           <input class="form-control mb-1" type="password" placeholder="New Password" name="passwords[new]">
+           <button type="submit" class="btn btn btn-block btn-primary">Submit</button>
+         </form>
+         <form class="col-md-6 mb-5" id="sign-out">
+           <h5>Sign Out</h5>
+           <button type="button" class="btn btn btn-block btn-primary">Sign Out</button>
+         </form>
+       </div>
      </div>
     </body>
 </html>
