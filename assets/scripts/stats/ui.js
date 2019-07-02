@@ -1,7 +1,6 @@
 'use strict'
 
 const getGamesResults = data => {
-  console.log(data)
   const gamesStarted = data.games
   const gamesPlayed = gamesStarted.filter(game => game.over)
   $('#get-games-message').text(`You've played ${gamesPlayed.length} games of tic tac toe.`)
