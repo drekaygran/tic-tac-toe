@@ -7,9 +7,9 @@ body {
   position: relative;
 }
 
-[class|="confetti"] {
-  position: absolute;
-}
+// [class!="confetti"] {
+//   position: absolute;
+// }
 
 .blue {
   color: #5FC9F5;
